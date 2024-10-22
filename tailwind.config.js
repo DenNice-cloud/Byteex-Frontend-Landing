@@ -14,6 +14,8 @@ module.exports = {
     },
     fontFamily: {
       suisse: ['SuisseBPIntl', 'sans-serif'],
+      sofiaLight: ['SofiaProLight', 'sans-serif'],
+      sofiaRegular: ['SofiaProRegular', 'sans-serif'],
     }
   },
   plugins: [],

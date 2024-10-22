@@ -3,8 +3,24 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'SuisseBPIntl';
-  src: url('/landing-page/src/fonts/SuisseBPIntl-Light.otf') format('opentype');
+  font-family: "SuisseBPIntl";
+  src: url("/landing-page/src/fonts/SuisseBPIntl-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SofiaProLight";
+  src: url("/landing-page/src/fonts/SofiaProLight.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "SofiaProRegular";
+  src: url("/landing-page/src/fonts/SofiaProRegular.ttf") format("opentype");
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "SofiaProRegular", sans-serif;
 }
 
 :root {
@@ -17,11 +33,6 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
 }
 
 @layer utilities {
