@@ -1,6 +1,9 @@
 const CommentHeroSection = () => {
   return (
-    <div className="px-[20px] py-[16px] bg-white rounded shadow-lg max-h-[172px] w-[416px]">
+    <div className="px-[20px] py-[16px] bg-white rounded shadow-lg 
+      lg:max-h-[172px] lg:w-[416px]
+      h-[132px] w-[388px]
+    ">
       <div className="flex mb-3">
         <div className="w-[40px] h-[40px] bg-[#1C2E58] mr-3 rounded-full overflow-hidden">
           <img
@@ -21,7 +24,7 @@ const CommentHeroSection = () => {
         </div>
       </div>
 
-      <p className="text-[#676869] max-h-[100px] overflow-hidden text-ellipsis whitespace-pre-wrap text-[12px]">
+      <p className="text-[#676869] lg:h-[55px] h-[40px] overflow-hidden text-ellipsis whitespace-pre-wrap text-[12px]">
         Overjoyed with my Loungewear set. I have the jogger and the sweatshirt.
         Quality product on every level. From the compostable packaging, to the
         supplied washing bag, even the garments smells like fresh herbs when I

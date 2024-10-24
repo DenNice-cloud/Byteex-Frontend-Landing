@@ -6,7 +6,6 @@ const AboutYou = () => {
   const size = useWindowSize();
   const isDesktop = size.width >= 1024;
 
-
   return (
     <div
       className="flex items-center justify-between bg-[#F0EEEF]
@@ -15,22 +14,23 @@ const AboutYou = () => {
     "
     >
       {isDesktop && (
-        <AnimationPhotoAboutYou />
+        <>
+          <AnimationPhotoAboutYou />
+          <div className="mx-[50px]"></div>
+        </>
       )}
 
-      <div className="w-[619px]">
+      <div className="w-full lg:w-[619px]">
         <div
           className="text-[#2A2996] mb-5
-          lg:text-xl lg:text-left
-          text-5xl text-center
-        "
+            lg:text-xl lg:text-left
+            text-5xl text-center
+          "
         >
           Be your best self.
         </div>
 
-        {!isDesktop && (
-          <AnimationPhotoAboutYou />
-        )}
+        {!isDesktop && <AnimationPhotoAboutYou />}
 
         <div
           className="mb-[30px] text-[#6C6C6C]

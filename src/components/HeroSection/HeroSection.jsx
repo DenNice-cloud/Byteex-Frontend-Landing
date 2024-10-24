@@ -5,12 +5,14 @@ import SwiperHeroSection from "./SwiperHeroSection";
 
 const HeroSection = () => {
   const size = useWindowSize();
+  const isDesktop = size.width >= 1024;
 
   return (
     <div
       className="flex flex-col justify-center 
         px-[20px] py-[13px] mb-[86px]
         lg:px-[96px] lg:py-[33px] lg:mb-[120px]
+        w-full
       "
     >
       <div
@@ -32,7 +34,7 @@ const HeroSection = () => {
         lg:justify-between
       "
       >
-        <div className="w-[500px]">
+        <div className=" w-full">
           <h2
             className="text-[#01005B] font-sofiaRegular 
             text-center text-3xl mb-[17px] 
@@ -41,7 +43,7 @@ const HeroSection = () => {
             Don't apologize for being comfortable.
           </h2>
 
-          {size.width <= 1024 && (
+          {!isDesktop && (
             <div className="w-full">
               <SwiperHeroSection />
             </div>
@@ -66,7 +68,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {size.width > 1024 ? (
+          {isDesktop ? (
             <button className="relative flex items-center rounded px-[70px] py-[16px] bg-[#01005B]">
               <p className="text-white text-xl">Customize Your Outfit</p>
 
@@ -77,16 +79,20 @@ const HeroSection = () => {
               />
             </button>
           ) : (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center ">
               <MainButton />
             </div>
           )}
         </div>
 
-        {size.width > 1024 && (
-          <div className="h-full">
-            <SwiperHeroSection />
-          </div>
+        {isDesktop && (
+          <>
+            <div className="mx-5"></div>
+
+            <div className="w-full">
+              <SwiperHeroSection />
+            </div>
+          </>
         )}
       </div>
     </div>

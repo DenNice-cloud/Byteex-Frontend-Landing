@@ -6,7 +6,7 @@ const InfoBanner = () => {
   const isDesktop = size.width >= 1024;
 
   return (
-    <div className="flex flex-col justify-center items-center bg-[#F0EEEF] py-[39px]">
+    <div className="flex flex-col justify-center items-center bg-[#F0EEEF] py-[39px] mb-[50px]">
       <div>
         <div className="text-[#01005B] text-[25px] text-center">
           Our total green impact

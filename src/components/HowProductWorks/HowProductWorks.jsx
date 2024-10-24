@@ -83,7 +83,7 @@ const HowProductWorks = () => {
         <h2>What are our fans saying?</h2>
       </div>
 
-      <div className="w-[600px] text-center">
+      <div className="w-full lg:w-[600px] text-center">
         <p className="text-[#676869]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
           lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et

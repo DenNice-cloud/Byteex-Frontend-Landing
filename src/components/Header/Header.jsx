@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-center bg-[#F9F0E5] font-suisse text-sm p-2">
-      {size.width < 1024 ? (
+      {size.width <= 1024 ? (
         <Swiper
           slidesPerView={1}
           loop={true}
@@ -39,7 +39,7 @@ const Header = () => {
           </SwiperSlide>
         </Swiper>
       ) : (
-        <p className="hidden xl:block">
+        <p >
           CONSCIOUSLY MADE BUTTER SOFT STAPLES FOR EVERY DAY (OR NIGHT) | FREE
           SHIPPING on orders {">"} $200 | easy 45 day return window.
         </p>

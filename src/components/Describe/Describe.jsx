@@ -18,12 +18,13 @@ const Describe = () => {
     <>
       <div
         className="bg-gradient-to-b from-[#F9F0E5B2] to-transparent
+        mt-[92px]
         py-[45px] px-[20px] 
         lg:py-[77px] lg:px-[104px] 
       "
       >
         <div className="flex flex-col items-center justify-center text-[#868787] font-medium">
-          <div className="flex flex-col items-center mb-4">as seen in</div>
+          <div className="flex flex-col items-center mt-[30px] mb-4">as seen in</div>
 
           <div className="h-full w-full">
             {!isDesktop ? (

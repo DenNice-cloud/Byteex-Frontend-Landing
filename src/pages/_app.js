@@ -13,25 +13,25 @@ import CommentHeroSection from "@/ui/comment";
 export default function Home() {
   return (
     <div>
-      {/* <Header />
-      <div className="relative">
+      <Header />
+      <div className="relative ">
         <HeroSection />
 
         <div
           className="absolute 
             lg:-bottom-[190px] lg:left-[90px] lg:transform lg:-translate-x-1
-            -bottom-[190px] left-1/2 transform -translate-x-1/2
+            -bottom-[150px] left-1/2 transform -translate-x-1/2
           "
         >
           <CommentHeroSection />
         </div>
-      </div> */}
-      {/* <Describe /> */}
-      {/* <AboutYou /> */}
-      {/* <HowProductWorks /> */}
-      {/* <Reviews /> */}
-      {/* <FAQComponent /> */}
-      {/* <InfoBanner /> */}
+      </div>
+      <Describe />
+      <AboutYou />
+      <HowProductWorks />
+      <Reviews />
+      <FAQComponent />
+      <InfoBanner />
       <Footer />
     </div>
   );
