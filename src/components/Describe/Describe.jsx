@@ -1,137 +1,177 @@
-import { useState } from "react";
+import { companyLogos } from "./constants/companyLogos";
+import { describeContant } from "./constants/describeContant";
+import useWindowSize from "@/Hook/useWindowSize";
+import SwiperDescribe from "./SwiperDescribe";
+import { MainButton } from "@/ui/button";
+
 import "swiper/css";
 import "swiper/css/navigation";
-
-import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { companyLogos } from "./constants/companyLogos";
-import { photos } from "./constants/photos";
-import { describeContant } from "./constants/describeContant";
 
 const Describe = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [swiperRef, setSwiperRef] = useState(0);
-
-  const handleClickSwitch = (index) => {
-    swiperRef.slideToLoop(index);
-    setActiveSlide(index);
-  };
+  const size = useWindowSize();
+  const isDesktop = size.width >= 1024;
 
   return (
     <>
-      <div className="py-[77px] px-[104px] bg-gradient-to-b from-[#F9F0E5B2] to-transparent">
-        <div className="flex flex-col justify-center text-[#868787] font-medium">
+      <div
+        className="bg-gradient-to-b from-[#F9F0E5B2] to-transparent
+        py-[45px] px-[20px] 
+        lg:py-[77px] lg:px-[104px] 
+      "
+      >
+        <div className="flex flex-col items-center justify-center text-[#868787] font-medium">
           <div className="flex flex-col items-center mb-4">as seen in</div>
 
-          <div className="flex items-center justify-between">
-            {companyLogos.map((companyLogo, index) => (
-              <div
-                key={index}
-                className="w-[140px]"
+          <div className="h-full w-full">
+            {!isDesktop ? (
+              <Swiper
+                style={{
+                  "--swiper-pagination-color": "#676869",
+                }}
+                slidesPerView={3}
+                grabCursor={true}
+                centeredSlides={true}
+                pagination={true}
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: true,
+                }}
+                modules={[Pagination, Autoplay]}
               >
-                <img
-                  src={companyLogo}
-                  alt={`company logo ${index}`}
-                />
+                {companyLogos.map((companyLogo, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      className="w-full h-[40px] object-contain"
+                      src={companyLogo}
+                      alt={`company logo ${index}`}
+                    />
+                  </SwiperSlide>
+                ))}
+
+                <div className="h-[50px] swiper-pagination-progressbar-opposite" />
+              </Swiper>
+            ) : (
+              <div className="flex items-center justify-between ">
+                {companyLogos.map((companyLogo, index) => (
+                  <div
+                    key={index}
+                    className="w-[140px]"
+                  >
+                    <img
+                      src={companyLogo}
+                      alt={`company logo ${index}`}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
 
-      <div className="px-[143px] py-[100px] flex justify-between">
-        <div className="mr-[180px]">
-          <h2 className="mb-[74px] text-[#01005B] font-sofiaRegular text-3xl ">
+      <div
+        className="flex justify-between
+        lg:px-[143px] lg:py-[100px] lg:flex-row
+        px-[32px] py-[42px] flex-col
+      "
+      >
+        <div
+          className=" flex flex-col justify-center items-center
+            lg:mr-[50px]
+          "
+        >
+          <h2
+            className=" text-[#01005B] font-sofiaRegular 
+              text-4xl text-center mb-[74px]
+              lg:text-xl lg:mb-[25px] lg:text-left lg:mb-[25px]
+            "
+          >
             Loungewear you can be proud of.
           </h2>
+
+          {!isDesktop && (
+            <div className="relative w-[500px] h-[600px] mb-[61px]">
+              <SwiperDescribe />
+            </div>
+          )}
 
           {describeContant.map((value) => (
             <div
               key={value.title}
-              className="flex"
+              className="
+                w-full h-full
+                lg:text-left lg:flex-row lg:items-start 
+                flex justify-center text-center flex-col  items-center 
+              "
             >
-              <div className="
-              lg:w-[30px] lg:h-[30px] bg-[#F9F0E5] rounded-full flex items-center justify-center 
-              sm:w-[42px] sm:h-[42px]">
+              <div
+                className="
+                  flex items-center justify-center 
+                  lg:mb-[0]
+                    w-[42px] h-[42px]
+                    lg:mr-[20px]
+                "
+              >
                 <img
                   className="
-                  lg:w-[20px] lg:h-[20px] object-contain 
-                  sm:w-[26px] sm:h-[26px]"
+                    object-contain
+                    w-[26px] h-[26px] 
+                    lg:w-[20px] lg:h-[20px]
+                  "
                   src={value.icon}
                   alt={`${value.alt} icon`}
                 />
+
+                <div
+                  className="bg-[#F9F0E5] rounded-full absolute z-[-1]
+                    w-[42px] h-[42px]
+                  "
+                ></div>
               </div>
 
-              <div className="flex flex-col ml-[13px]">
+              <div
+                className="flex flex-col
+              "
+              >
                 <h3 className="text-[#01005B] font-sofiaRegular text-xl mb-[14px]">
                   {value.title}
                 </h3>
 
-                <p className="mb-[17px]">{value.description}</p>
+                <p className="mb-[17px] px-[45px] lg:px-[0px]">
+                  {value.description}
+                </p>
               </div>
+
+              {!isDesktop && (
+                <div className="w-full my-[30px] border-b border-gray-300"></div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="relative w-[500px] h-[600px]">
-          <Swiper
-            style={{
-              "--swiper-navigation-color": "#676869",
-              "--swiper-pagination-color": "#676869",
-            }}
-            navigation={true}
-            modules={[Navigation, Autoplay]}
-            loop={true}
-            className="w-full"
-            onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-            onSwiper={(swiper) => setSwiperRef(swiper)}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: true,
-            }}
-          >
-            {photos.map((photo, index) => (
-              <SwiperSlide
-                key={index}
-                className="flex items-center justify-center"
-              >
-                <img
-                  className="h-[600px] object-cover"
-                  src={photo}
-                  alt="photo"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <div className="absolute bottom-3 left-0 w-[500px] z-[1]">
-            <Swiper
-              slidesPerView={photos.length}
-              modules={[Navigation]}
-              onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-              style={{ width: "250px" }}
-            >
-              {photos.map((photo, index) => (
-                <SwiperSlide
-                  key={index}
-                  onClick={() => handleClickSwitch(index)}
-                >
-                  <img
-                    className={`w-[32px] h-[32px] object-cover ${
-                      activeSlide === index ? "border-4 border-white" : ""
-                    }`}
-                    src={photo}
-                    alt="mini-image"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+        {isDesktop ? (
+          <div className="relative w-[500px] h-[600px]">
+            <SwiperDescribe />
           </div>
+        ) : (
+          <div className="mb-[11px] flex flex-col justify-center">
+            <MainButton />
 
-          <div className="flex justify-center mt-[13px] text-[#676869]">
-            <p>White Robe</p>
+            <div className="flex justify-center items-center mb-[74px]">
+              <img
+                className="mr-3"
+                src="icons/stars.svg"
+                alt="stars"
+              />
+
+              <p className="text-[#676869]">Over 500+ 5 Star Reviews Online</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

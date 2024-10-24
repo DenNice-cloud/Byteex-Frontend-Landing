@@ -1,80 +1,43 @@
-import { useEffect, useState } from "react";
+import useWindowSize from "@/Hook/useWindowSize";
 import "swiper/css";
+import AnimationPhotoAboutYou from "./AnimationPhotoAboutYou";
 
 const AboutYou = () => {
-  const [squareImage, setSquareImage] = useState(
-    "images/Lucille-crewneck-sweatshirt-blush-and ayla-sleep-jogger-sepia-rose-2 2.png"
-  );
-  const [currentImage, setCurrentImage] = useState(
-    "images/Lucille-crewneck-sweatshirt-blush-and ayla-sleep-jogger-sepia-rose-2 1.png"
-  );
-  const [rectangleImage, setRectangleImage] = useState(
-    "images/near-window.jfif"
-  );
+  const size = useWindowSize();
+  const isDesktop = size.width >= 1024;
 
-  const handleFirstClick = () => {
-    const squareImageTemp = squareImage;
-    setSquareImage(currentImage);
-    setCurrentImage(squareImageTemp);
-  };
-
-  const handleSecondClick = () => {
-    const rectangleImageTemp = rectangleImage;
-    setRectangleImage(currentImage);
-    setCurrentImage(rectangleImageTemp);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const temp = rectangleImage;
-      setRectangleImage(currentImage);
-      setCurrentImage(squareImage);
-      setSquareImage(temp);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentImage, squareImage, rectangleImage]);
 
   return (
-    <div className="flex items-center justify-between bg-[#F0EEEF]  px-[200px] py-[83px]">
-      <div className="relative">
-        <div
-          className="absolute left-[-70px] top-[-70px] w-[165px] h-[175px] border-4 border-white cursor-pointer 
-            transition-transform duration-500 hover:scale-105"
-          onClick={handleFirstClick}
-        >
-          <img
-            className="w-full h-full object-cover transition-opacity duration-500 "
-            src={squareImage}
-            alt="square-photo"
-          />
-        </div>
-
-        <div className="w-[380px] h-[570px]">
-          <img
-            className="w-full h-full object-cover transition-opacity duration-500 "
-            src={currentImage}
-            alt="main-photo"
-          />
-        </div>
-
-        <div
-          className="absolute right-[-70px] bottom-[-70px] w-[128px] h-[175px] border-4 border-white cursor-pointer
-            transition-transform duration-500 hover:scale-105"
-          onClick={handleSecondClick}
-        >
-          <img
-            className="w-full h-full object-cover transition-opacity duration-500 "
-            src={rectangleImage}
-            alt="rectangle-photo"
-          />
-        </div>
-      </div>
+    <div
+      className="flex items-center justify-between bg-[#F0EEEF]
+      lg:flex-row lg:px-[200px] lg:py-[83px]
+      flex-col px-[37px] py-[40px]
+    "
+    >
+      {isDesktop && (
+        <AnimationPhotoAboutYou />
+      )}
 
       <div className="w-[619px]">
-        <div className="text-3xl text-[#2A2996] mb-5">Be your best self.</div>
+        <div
+          className="text-[#2A2996] mb-5
+          lg:text-xl lg:text-left
+          text-5xl text-center
+        "
+        >
+          Be your best self.
+        </div>
 
-        <div className="mb-[30px] text-[#6C6C6C]">
+        {!isDesktop && (
+          <AnimationPhotoAboutYou />
+        )}
+
+        <div
+          className="mb-[30px] text-[#6C6C6C]
+          lg:text-xl
+          text-2xl
+        "
+        >
           Hi! My name’s [Insert Name], and I founded [Insert] in ____.
           <br />
           <br />
@@ -106,11 +69,13 @@ const AboutYou = () => {
           Cras mattis varius mollis.
         </div>
 
-        <div>
-          <button className="relative flex justify-between items-center rounded px-[90px] py-[16px] bg-[#01005B]">
-            <p className="text-white text-base">Customize Your Outfit</p>
-          </button>
-        </div>
+        {isDesktop && (
+          <div>
+            <button className="relative flex justify-between items-center rounded px-[90px] py-[16px] bg-[#01005B]">
+              <p className="text-white text-base">Customize Your Outfit</p>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

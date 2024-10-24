@@ -1,13 +1,24 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
-import "swiper/css";
 import { describerSection } from "./constants/describerSection";
-import { swipePhotos } from "./constants/swipePhotos";
+import useWindowSize from "@/Hook/useWindowSize";
+import { MainButton } from "@/ui/button";
+import SwiperHeroSection from "./SwiperHeroSection";
 
 const HeroSection = () => {
+  const size = useWindowSize();
+
   return (
-    <div className="flex flex-col justify-center px-[96px] py-[33px] mb-[120px]">
-      <div className="mb-[60px]">
+    <div
+      className="flex flex-col justify-center 
+        px-[20px] py-[13px] mb-[86px]
+        lg:px-[96px] lg:py-[33px] lg:mb-[120px]
+      "
+    >
+      <div
+        className="mb-[60px]
+        flex flex-col justify-center items-center 
+        lg:items-start
+      "
+      >
         <img
           className="h-[35px]"
           src="/images/LOGO.svg"
@@ -15,11 +26,26 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="flex w-full items-center justify-between">
-        <div className="w-[500px] mr-[100px]">
-          <h2 className="text-[#01005B] font-sofiaRegular text-3xl mb-[25px]">
+      <div
+        className="flex w-full items-center 
+        justify-center
+        lg:justify-between
+      "
+      >
+        <div className="w-[500px]">
+          <h2
+            className="text-[#01005B] font-sofiaRegular 
+            text-center text-3xl mb-[17px] 
+            lg:text-xl lg:mb-[25px] lg:text-left"
+          >
             Don't apologize for being comfortable.
           </h2>
+
+          {size.width <= 1024 && (
+            <div className="w-full">
+              <SwiperHeroSection />
+            </div>
+          )}
 
           <div>
             {describerSection.map((value) => (
@@ -40,57 +66,28 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <button className="relative flex items-center rounded px-[70px] py-[16px] bg-[#01005B]">
-            <p className="text-white text-xl">Customize Your Outfit</p>
+          {size.width > 1024 ? (
+            <button className="relative flex items-center rounded px-[70px] py-[16px] bg-[#01005B]">
+              <p className="text-white text-xl">Customize Your Outfit</p>
 
-            <img
-              className="absolute right-8 bottom-2"
-              src="/icons/Arrow.svg"
-              alt="arrow"
-            />
-          </button>
+              <img
+                className="absolute right-8 bottom-2"
+                src="/icons/Arrow.svg"
+                alt="arrow"
+              />
+            </button>
+          ) : (
+            <div className="flex justify-center items-center">
+              <MainButton />
+            </div>
+          )}
         </div>
 
-        <div className=" h-full" >
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={3}
-            loop={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 200,
-              modifier: 1.5,
-              slideShadows: false,
-            }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: true,
-              reverseDirection: true,
-            }}
-            modules={[EffectCoverflow, Autoplay]}
-          >
-            <div className="absolute top-[100px] right-0 w-[100px] h-[150px] bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
-
-            {swipePhotos.map((src, index) => (
-              <SwiperSlide
-                key={index}
-              >
-                <div className=" flex w-[300px]">
-                  <img
-                    className="w-[300px] h-[400px] object-cover"
-                    src={src}
-                    alt={`Lucille Crewneck ${index + 1}`}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-
-            <div className="absolute top-[100px] left-0 w-[100px] h-[150px] bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
-          </Swiper>
-        </div>
+        {size.width > 1024 && (
+          <div className="h-full">
+            <SwiperHeroSection />
+          </div>
+        )}
       </div>
     </div>
   );
