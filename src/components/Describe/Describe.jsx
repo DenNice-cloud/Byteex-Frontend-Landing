@@ -2,7 +2,7 @@ import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { companyLogos } from "./constants/companyLogos";
 import { photos } from "./constants/photos";
@@ -29,7 +29,10 @@ const Describe = () => {
                 key={index}
                 className="w-[140px]"
               >
-                <img src={companyLogo} />
+                <img
+                  src={companyLogo}
+                  alt={`company logo ${index}`}
+                />
               </div>
             ))}
           </div>
@@ -47,14 +50,19 @@ const Describe = () => {
               key={value.title}
               className="flex"
             >
-              <div className="w-[30px] h-[30px] bg-[#F9F0E5] rounded-full p-2 mr-[13px]">
+              <div className="
+              lg:w-[30px] lg:h-[30px] bg-[#F9F0E5] rounded-full flex items-center justify-center 
+              sm:w-[42px] sm:h-[42px]">
                 <img
+                  className="
+                  lg:w-[20px] lg:h-[20px] object-contain 
+                  sm:w-[26px] sm:h-[26px]"
                   src={value.icon}
                   alt={`${value.alt} icon`}
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col ml-[13px]">
                 <h3 className="text-[#01005B] font-sofiaRegular text-xl mb-[14px]">
                   {value.title}
                 </h3>
@@ -72,11 +80,15 @@ const Describe = () => {
               "--swiper-pagination-color": "#676869",
             }}
             navigation={true}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             loop={true}
             className="w-full"
             onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
             onSwiper={(swiper) => setSwiperRef(swiper)}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: true,
+            }}
           >
             {photos.map((photo, index) => (
               <SwiperSlide
