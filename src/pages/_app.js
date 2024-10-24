@@ -28,11 +28,11 @@ export default function Home() {
       </div> */}
       {/* <Describe /> */}
       {/* <AboutYou /> */}
-      <HowProductWorks />
-      {/* <Reviews />
-      <FAQComponent />
-      <InfoBanner />
-      <Footer /> */}
+      {/* <HowProductWorks /> */}
+      {/* <Reviews /> */}
+      {/* <FAQComponent /> */}
+      {/* <InfoBanner /> */}
+      <Footer />
     </div>
   );
 }

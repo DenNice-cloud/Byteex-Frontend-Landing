@@ -1,20 +1,30 @@
 import { MainButton } from "@/ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
 import AnimationPhotos from "./AnimationPhotos";
 import ReviewMessage from "@/ui/ReviewMessage";
 import { userReview } from "./constants/userReview";
+import useWindowSize from "@/Hook/useWindowSize";
 
 const Reviews = () => {
+  const size = useWindowSize();
+  const isDesktop = size.width >= 1024;
+
   return (
     <div className="flex flex-col jusify-center items-center">
       <div className="relative w-full overflow-hidden">
         <AnimationPhotos />
       </div>
 
-      <div className="px-[60px] py-[60px] max-w-full">
+      <div
+        className="max-w-full
+          lg:px-[60px] lg:py-[60px] 
+          px-[40px] py-[40px] 
+        "
+      >
         <Swiper
           style={{
             "--swiper-navigation-color": "#676869",
@@ -22,24 +32,27 @@ const Reviews = () => {
           }}
           grabCursor={true}
           navigation={true}
+          pagination={true}
           loop={true}
-          modules={[Navigation]}
+          modules={[Pagination, Navigation]}
           breakpoints={{
             1024: {
               slidesPerView: 3,
               spaceBetween: 30,
             },
-            640: {
+            0: {
               slidesPerView: 1,
-              spaceBetween: 10,
+              spaceBetween: 100,
             },
           }}
           className="px-[50px]"
         >
-          {userReview.map((user) => (
+          {userReview.map((user, index) => (
             <SwiperSlide
-              key={user.name}
-              className="h-[300px]"
+              key={index}
+              className="
+                lg:h-[300px] h-[260px]
+              "
             >
               <ReviewMessage
                 name={user.name}
@@ -47,6 +60,10 @@ const Reviews = () => {
               />
             </SwiperSlide>
           ))}
+
+          {!isDesktop && (
+            <div className="h-[30px] swiper-pagination-progressbar-opposite" />
+          )}
         </Swiper>
       </div>
 
