@@ -41,7 +41,7 @@ const HeroSection = () => {
             text-center text-3xl mb-[17px] 
             lg:text-xl lg:mb-[25px] lg:text-left"
           >
-            Don't apologize for being comfortable.
+            Don&apos;t apologize for being comfortable.
           </h2>
 
           {!isDesktop && (
@@ -50,9 +50,11 @@ const HeroSection = () => {
             </div>
           )}
 
-          <div className="flex 
+          <div
+            className="flex 
           lg:items-start lg:justify-start
-          items-center justify-center">
+          items-center justify-center"
+          >
             <div>
               {describerSection.map((value) => (
                 <div

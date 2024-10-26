@@ -66,7 +66,7 @@ const FAQComponent = () => {
                 {tab.title}
               </h3>
 
-              <button className="text-2xl font-bold text-[#01005B]">
+                <button className="text-2xl font-bold text-[#01005B]">
                 {isOpen === index ? "-" : "+"}
               </button>
             </div>
