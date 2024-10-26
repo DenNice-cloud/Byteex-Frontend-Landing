@@ -50,7 +50,9 @@ const HeroSection = () => {
             </div>
           )}
 
-          <div className="flex items-center justify-center">
+          <div className="flex 
+          lg:items-start lg:justify-start
+          items-center justify-center">
             <div>
               {describerSection.map((value) => (
                 <div
