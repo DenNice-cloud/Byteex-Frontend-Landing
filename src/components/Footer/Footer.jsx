@@ -1,5 +1,5 @@
-import { MainButton } from "../../ui/Button";
-import useWindowSize from "../../hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
+import { MainButton } from "@/ui/Button";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";

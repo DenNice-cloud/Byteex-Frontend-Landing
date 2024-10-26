@@ -1,6 +1,6 @@
 import { describerSection } from "./constants/describerSection";
-import useWindowSize from "../../hook/useWindowSize";
-import { MainButton } from "../../ui/Button";
+import useWindowSize from "@/hook/useWindowSize";
+import { MainButton } from "@/ui/Button";
 import SwiperHeroSection from "./SwiperHeroSection";
 
 const HeroSection = () => {

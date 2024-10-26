@@ -1,6 +1,6 @@
-import { MainButton } from "../../ui/Button";
-import ReviewMessage from "../../ui/ReviewMessage";
-import useWindowSize from "../../hook/useWindowSize";
+import { MainButton } from "@/ui/Button";
+import ReviewMessage from "@/ui/ReviewMessage";
+import useWindowSize from "@/hook/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
