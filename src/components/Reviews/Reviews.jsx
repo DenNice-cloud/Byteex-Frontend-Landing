@@ -1,13 +1,13 @@
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "../../ui/Button";
+import ReviewMessage from "../../ui/ReviewMessage";
+import useWindowSize from "../../hook/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import AnimationPhotos from "./AnimationPhotos";
-import ReviewMessage from "@/ui/ReviewMessage";
 import { userReview } from "./constants/userReview";
-import useWindowSize from "@/hook/useWindowSize";
 
 const Reviews = () => {
   const size = useWindowSize();

@@ -1,5 +1,5 @@
 import { productContant } from "./constants/productContant";
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "../../ui/Button";
 
 import "swiper/css";
 import "swiper/css/navigation";

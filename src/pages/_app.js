@@ -1,14 +1,14 @@
-import AboutYou from "@/components/AboutYou/AboutYou";
-import Describe from "@/components/Describe/Describe";
-import FAQComponent from "@/components/FAQ/FAQComponent";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import HeroSection from "@/components/HeroSection/HeroSection";
-import HowProductWorks from "@/components/HowProductWorks/HowProductWorks";
-import InfoBanner from "@/components/InfoBanner/InfoBanner";
-import Reviews from "@/components/Reviews/Reviews";
-import CommentHeroSection from "@/ui/Comment";
-import "@/styles/globals.css";
+import AboutYou from "../components/AboutYou/AboutYou";
+import Describe from "../components/Describe/Describe";
+import FAQComponent from "../components/FAQ/FAQComponent";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import HeroSection from "../components/HeroSection/HeroSection";
+import HowProductWorks from "../components/HowProductWorks/HowProductWorks";
+import InfoBanner from "../components/InfoBanner/InfoBanner";
+import Reviews from "../components/Reviews/Reviews";
+import CommentHeroSection from "../ui/Comment";
+import "../styles/globals.css";
 
 export default function Home() {
   return (

@@ -1,10 +1,10 @@
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "../../ui/Button";
+import useWindowSize from "../../hook/useWindowSize";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { photosSwiper } from "./constants/photosSwiper";
 import { footerDescription } from "./constants/footerDescription";
-import useWindowSize from "@/hook/useWindowSize";
 
 const Footer = () => {
   const size = useWindowSize();
