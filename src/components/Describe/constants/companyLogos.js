@@ -1,7 +1,7 @@
 export const companyLogos = [
-  "images/Company logos/Artboard3.png",
-  "images/Company logos/Artboard6.png",
-  "images/Company logos/Artboard4.png",
-  "images/Company logos/Artboard2.png",
-  "images/Company logos/Artboard5.png",
+  { image: "images/Company logos/Artboard3.png", keyName: "Artboard3" },
+  { image: "images/Company logos/Artboard6.png", keyName: "Artboard6" },
+  { image: "images/Company logos/Artboard4.png", keyName: "Artboard4" },
+  { image: "images/Company logos/Artboard2.png", keyName: "Artboard2" },
+  { image: "images/Company logos/Artboard5.png", keyName: "Artboard5" },
 ];

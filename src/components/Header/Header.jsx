@@ -2,14 +2,16 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import useWindowSize from "@/Hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
 
 const Header = () => {
   const size = useWindowSize();
+  const sizeTransition = 1024;  
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <div className="flex items-center justify-center bg-[#F9F0E5] font-suisse text-sm p-2">
-      {size.width <= 1024 ? (
+      {!isDesktop ? (
         <Swiper
           slidesPerView={1}
           loop={true}
@@ -39,7 +41,7 @@ const Header = () => {
           </SwiperSlide>
         </Swiper>
       ) : (
-        <p >
+        <p>
           CONSCIOUSLY MADE BUTTER SOFT STAPLES FOR EVERY DAY (OR NIGHT) | FREE
           SHIPPING on orders {">"} $200 | easy 45 day return window.
         </p>

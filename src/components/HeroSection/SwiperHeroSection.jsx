@@ -5,7 +5,7 @@ import "swiper/css";
 
 const SwiperHeroSection = () => {
   return (
-    <div className=" mb-[10px] lg:mb-0" >
+    <div>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -23,28 +23,31 @@ const SwiperHeroSection = () => {
           disableOnInteraction: true,
           reverseDirection: true,
         }}
+        className="max-w-[45.3rem]"
         modules={[EffectCoverflow, Autoplay]}
       >
-        <div className="absolute lg:top-[50px] top-[20px] right-0 w-[100px] h-[150px] bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
+        <div className="absolute lg:top-[50px] top-[80px] right-0 w-[6.25rem] h-[150px]
+        bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
 
         {swipePhotos.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="flex w-[150px] lg:w-full">
-              <img
-                className="
-                          w-[150px] h-[200px]
-                          lg:w-full lg:h-[250px]
-                          object-cover
-                           border-4 border-white
-                          "
-                src={src}
-                alt={`Lucille Crewneck ${index + 1}`}
-              />
-            </div>
+          <SwiperSlide
+            key={src.keyName}
+          >
+            <img
+              className="
+                h-[20rem] w-[15.5rem]
+                overflow-hidden
+                object-cover
+                border-4 border-white
+              "
+              src={src.src}
+              alt={src.keyName}
+            />
           </SwiperSlide>
         ))}
 
-        <div className="absolute lg:top-[50px] top-[20px] left-0 w-[100px] h-[150px] bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
+        <div className="absolute lg:top-[50px] top-[80px] left-0 w-[6.25rem] h-[150px]
+        bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
       </Swiper>
     </div>
   );

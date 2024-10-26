@@ -1,5 +1,5 @@
-import useWindowSize from "@/Hook/useWindowSize";
-import { MainButton } from "@/ui/button";
+import useWindowSize from "@/hook/useWindowSize";
+import { MainButton } from "@/ui/Button";
 import { useEffect, useState } from "react";
 
 const { descriptionTab } = require("./constants/descriptionTab");
@@ -14,7 +14,8 @@ const FAQComponent = () => {
     "images/girl-yawning.png"
   );
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,20 +37,25 @@ const FAQComponent = () => {
     <div
       className="flex 
       flex-col lg:flex-row
-      justify-center
-      lg:justify-between items-center
+      justify-center items-center
       lg:pl-[200px] lg:py-[100px] lg:pr-[100px]
       px-[44px] py-[68px]
+      
     "
     >
-      <div className="w-full lg:w-auto mb-[40px]">
-        <h1 className="text-[#01005B] text-[32px] lg:text-left text-center lg:w-[430px]">
+      <div
+        className=" mb-[40px] 
+          flex flex-col justify-center items-center lg:justify-start lg:items-start
+          w-full
+        "
+      >
+        <h1 className="text-[#01005B] text-[32px] lg:text-left text-center ">
           Frequently asked questions.
         </h1>
 
         {descriptionTab.map((tab, index) => (
           <div
-            key={index}
+            key={tab.keyName}
             className="py-4 border-b border-gray-300 my-4 w-full"
           >
             <div
@@ -66,52 +72,56 @@ const FAQComponent = () => {
             </div>
 
             {isOpen === index && (
-              <p className="text-[#676869]">{tab.description}</p>
+              <p className="text-[#676869] ">{tab.description}</p>
             )}
           </div>
         ))}
       </div>
 
       {isDesktop ? (
-        <div className="relative">
-          <div>
-            <img
-              className="w-[227px] h-[355px] object-cover mx-[123px]"
-              src={currentImage}
-              alt="main-photo"
-            />
-          </div>
+        <>
+          <div className="mx-10"></div>
 
-          <div className="absolute left-[220px] top-[-150px] w-[167px] h-[253px] -z-[2]">
-            <img
-              className="w-full h-full object-cover "
-              src={squareImage}
-              alt="square-photo"
-            />
-          </div>
+          <div className="relative">
+            <div>
+              <img
+                className="w-[14rem] h-[22rem] object-cover mx-[80px]"
+                src={currentImage}
+                alt="main-photo"
+              />
+            </div>
 
-          <div
-            className="absolute bottom-[-70px] left-[290px] 
-              w-[100px] h-[190px] 
+            <div className="absolute left-[210px] top-[-110px] w-[8rem] h-[11rem] -z-[2]">
+              <img
+                className="w-full h-full object-cover "
+                src={squareImage}
+                alt="square-photo"
+              />
+            </div>
+
+            <div
+              className="absolute bottom-[-70px] left-[230px] 
+              w-[6.25rem] h-[8rem] 
               bg-gradient-to-b from-[#F9F0E537] to-[#F9F0E5B2]
               -z-[2]"
-          ></div>
+            ></div>
 
-          <div
-            className="absolute top-[-70px] left-[50px] 
-              w-[150px] h-[190px] 
+            <div
+              className="absolute top-[-70px] left-[30px] 
+              w-[6.25rem] h-[8rem] 
               bg-gradient-to-b from-[#F9F0E537] to-[#F9F0E5B2]
               -z-[2]"
-          ></div>
+            ></div>
 
-          <div className="absolute left-[20px] bottom-[-110px] w-[216px] h-[159px] -z-[2]">
-            <img
-              className="w-full h-full object-cover "
-              src={rectangleImage}
-              alt="rectangle-photo"
-            />
+            <div className="absolute left-[0px] bottom-[-80px] w-[10rem] h-[8rem] -z-[2]">
+              <img
+                className="w-full h-full object-cover "
+                src={rectangleImage}
+                alt="rectangle-photo"
+              />
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <div>
           <div className="mb-[11px]">

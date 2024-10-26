@@ -1,14 +1,15 @@
-import { MainButton } from "@/ui/button";
+import { MainButton } from "@/ui/Button";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { photosSwiper } from "./constants/photosSwiper";
 import { footerDescription } from "./constants/footerDescription";
-import useWindowSize from "@/Hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
 
 const Footer = () => {
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -21,7 +22,8 @@ const Footer = () => {
           felis finibus consequat.
         </p>
       </div>
-      <div className="w-full px-[30px]">
+
+      <div className="flex flex-col justify-center items-center w-full px-[30px]">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -34,20 +36,21 @@ const Footer = () => {
             modifier: 1.5,
             slideShadows: false,
           }}
-          className="relative mb-10 w-full lg:w-[600px]"
+          className="relative mb-10 w-full lg:w-[600px] "
           modules={[EffectCoverflow]}
         >
           <div className="absolute top-[70px] right-0 w-[100px] h-[150px] bg-gradient-to-b from-transparent to-[#F9F0E5B2]"></div>
 
           {photosSwiper.map((value) => (
-            <SwiperSlide key={value.alt}>
-              <div className="w-[200px] h-[300px] lg:flex lg:items-center lg:justify-center">
-                <img
-                  className="w-full h-full object-cover"
-                  src={value.image}
-                  alt={value.alt}
-                />
-              </div>
+            <SwiperSlide
+              key={value.alt}
+              className="flex justify-center items-center"
+            >
+              <img
+                className="h-[16rem] w-[13.5rem] overflow-hidden object-cover"
+                src={value.image}
+                alt={value.alt}
+              />
             </SwiperSlide>
           ))}
 
@@ -57,7 +60,9 @@ const Footer = () => {
 
       <div className="flex flex-col justify-center items-center pb-[83px] w-full h-full bg-gradient-to-b from-transparent to-[#F9F0E5B2]">
         <div className="flex flex-col justify-center items-center w-full lg:w-[380px]">
-          <MainButton />
+          <div className="mb-2">
+            <MainButton />
+          </div>
 
           {isDesktop ? (
             <div className="flex h-[22px] mb-[20px]">
@@ -97,7 +102,7 @@ const Footer = () => {
           <div className="flex justify-center items-center ">
             {footerDescription.map((impact, index) => (
               <div
-                key={index}
+                key={impact.alt}
                 className="flex h-[50px]"
               >
                 <div className="flex justify-center items-center">

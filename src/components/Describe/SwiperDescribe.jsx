@@ -32,38 +32,38 @@ const SwiperDescribe = () => {
           disableOnInteraction: true,
         }}
       >
-        {photos.map((photo, index) => (
+        {photos.map((photo) => (
           <SwiperSlide
-            key={index}
+            key={photo.keyName}
             className="flex items-center justify-center"
           >
             <img
-              className="h-[600px] object-cover"
-              src={photo}
+              className="h-[30rem] object-cover"
+              src={photo.image}
               alt="photo"
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="absolute bottom-3 left-0 w-[500px] z-[1]">
+      <div className="absolute bottom-3 left-0 w-[28rem] z-[1]">
         <Swiper
           slidesPerView={photos.length}
           modules={[Navigation]}
           onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-          style={{ width: "250px" }}
+          style={{ width: "16rem" }}
         >
           {photos.map((photo, index) => (
             <SwiperSlide
-              key={index}
+              key={photo.keyName}
               className="cursor-pointer"
               onClick={() => handleClickSwitch(index)}
             >
               <img
-                className={`w-[32px] h-[32px] object-cover ${
+                className={`w-[2rem] h-[2rem] object-cover ${
                   activeSlide === index ? "border-4 border-white" : ""
                 }`}
-                src={photo}
+                src={photo.image}
                 alt="mini-image"
               />
             </SwiperSlide>

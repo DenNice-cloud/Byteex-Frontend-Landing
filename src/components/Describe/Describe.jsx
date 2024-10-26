@@ -1,8 +1,8 @@
 import { companyLogos } from "./constants/companyLogos";
 import { describeContant } from "./constants/describeContant";
-import useWindowSize from "@/Hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
 import SwiperDescribe from "./SwiperDescribe";
-import { MainButton } from "@/ui/button";
+import { MainButton } from "@/ui/Button";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,7 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const Describe = () => {
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <>
@@ -24,7 +25,9 @@ const Describe = () => {
       "
       >
         <div className="flex flex-col items-center justify-center text-[#868787] font-medium">
-          <div className="flex flex-col items-center mt-[30px] mb-4">as seen in</div>
+          <div className="flex flex-col items-center mt-[30px] mb-4">
+            as seen in
+          </div>
 
           <div className="h-full w-full">
             {!isDesktop ? (
@@ -43,12 +46,12 @@ const Describe = () => {
                 }}
                 modules={[Pagination, Autoplay]}
               >
-                {companyLogos.map((companyLogo, index) => (
-                  <SwiperSlide key={index}>
+                {companyLogos.map((companyLogo) => (
+                  <SwiperSlide key={companyLogo.keyName}>
                     <img
                       className="w-full h-[40px] object-contain"
-                      src={companyLogo}
-                      alt={`company logo ${index}`}
+                      src={companyLogo.image}
+                      alt={`company logo ${companyLogo.keyName}`}
                     />
                   </SwiperSlide>
                 ))}
@@ -57,14 +60,14 @@ const Describe = () => {
               </Swiper>
             ) : (
               <div className="flex items-center justify-between ">
-                {companyLogos.map((companyLogo, index) => (
+                {companyLogos.map((companyLogo) => (
                   <div
-                    key={index}
+                    key={companyLogo.keyName}
                     className="w-[140px]"
                   >
                     <img
-                      src={companyLogo}
-                      alt={`company logo ${index}`}
+                      src={companyLogo.image}
+                      alt={`company logo ${companyLogo.keyName}`}
                     />
                   </div>
                 ))}
@@ -95,7 +98,7 @@ const Describe = () => {
           </h2>
 
           {!isDesktop && (
-            <div className="relative w-[500px] h-[600px] mb-[61px]">
+            <div className="relative w-[28rem] h-[30rem] mb-[61px]">
               <SwiperDescribe />
             </div>
           )}
@@ -113,7 +116,7 @@ const Describe = () => {
                 className="
                   flex items-center justify-center 
                   lg:mb-[0]
-                    w-[42px] h-[42px]
+                    min-w-[2.6rem] h-[2.6rem]
                     lg:mr-[20px]
                 "
               >
@@ -129,7 +132,7 @@ const Describe = () => {
 
                 <div
                   className="bg-[#F9F0E5] rounded-full absolute z-[-1]
-                    w-[42px] h-[42px]
+                    w-[2.6rem] h-[2.6rem]
                   "
                 ></div>
               </div>
@@ -155,7 +158,7 @@ const Describe = () => {
         </div>
 
         {isDesktop ? (
-          <div className="relative w-[500px] h-[600px]">
+          <div className="relative w-[28rem] h-[30rem]">
             <SwiperDescribe />
           </div>
         ) : (

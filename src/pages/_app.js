@@ -7,8 +7,8 @@ import HeroSection from "@/components/HeroSection/HeroSection";
 import HowProductWorks from "@/components/HowProductWorks/HowProductWorks";
 import InfoBanner from "@/components/InfoBanner/InfoBanner";
 import Reviews from "@/components/Reviews/Reviews";
+import CommentHeroSection from "@/ui/Comment";
 import "@/styles/globals.css";
-import CommentHeroSection from "@/ui/comment";
 
 export default function Home() {
   return (

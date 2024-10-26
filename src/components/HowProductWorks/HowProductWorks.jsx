@@ -1,5 +1,5 @@
 import { productContant } from "./constants/productContant";
-import { MainButton } from "@/ui/button";
+import { MainButton } from "@/ui/Button";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -27,7 +27,7 @@ const HowProductWorks = () => {
           breakpoints={{
             1024: {
               slidesPerView: 3,
-              spaceBetween: 30, 
+              spaceBetween: 30,
             },
             0: {
               slidesPerView: "auto",
@@ -44,9 +44,9 @@ const HowProductWorks = () => {
           }}
           className="relative lg:w-full w-[450px]"
         >
-          {productContant.map((product, index) => (
+          {productContant.map((product) => (
             <SwiperSlide
-              key={index}
+              key={product.alt}
               style={{ backgroundColor: product.color }}
               className={`w-[346px] h-[321px] px-[35px] rounded-lg text-center 
                 flex flex-col justify-center items-center`}

@@ -1,4 +1,4 @@
-import { MainButton } from "@/ui/button";
+import { MainButton } from "@/ui/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -7,11 +7,12 @@ import "swiper/css/navigation";
 import AnimationPhotos from "./AnimationPhotos";
 import ReviewMessage from "@/ui/ReviewMessage";
 import { userReview } from "./constants/userReview";
-import useWindowSize from "@/Hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
 
 const Reviews = () => {
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <div className="flex flex-col jusify-center items-center">
@@ -47,9 +48,9 @@ const Reviews = () => {
           }}
           className="px-[50px]"
         >
-          {userReview.map((user, index) => (
+          {userReview.map((user) => (
             <SwiperSlide
-              key={index}
+              key={user.keyName}
               className="
                 lg:h-[300px] h-[260px]
               "

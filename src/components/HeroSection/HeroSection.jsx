@@ -1,11 +1,12 @@
 import { describerSection } from "./constants/describerSection";
-import useWindowSize from "@/Hook/useWindowSize";
-import { MainButton } from "@/ui/button";
+import useWindowSize from "@/hook/useWindowSize";
+import { MainButton } from "@/ui/Button";
 import SwiperHeroSection from "./SwiperHeroSection";
 
 const HeroSection = () => {
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <div
@@ -30,9 +31,9 @@ const HeroSection = () => {
 
       <div
         className="flex w-full items-center 
-        justify-center
-        lg:justify-between
-      "
+          justify-center
+          lg:justify-between
+        "
       >
         <div className=" w-full">
           <h2
@@ -49,23 +50,25 @@ const HeroSection = () => {
             </div>
           )}
 
-          <div>
-            {describerSection.map((value) => (
-              <div
-                key={value.alt}
-                className="flex items-center mb-[23px]"
-              >
-                <div className="w-max-[31px] h-[31px] bg-[#F9F0E5] rounded-full p-2">
-                  <img
-                    className="w-full h-full"
-                    src={value.icon}
-                    alt={`${value.alt} icon`}
-                  />
-                </div>
+          <div className="flex items-center justify-center">
+            <div>
+              {describerSection.map((value) => (
+                <div
+                  key={value.alt}
+                  className="flex items-center mb-[23px]"
+                >
+                  <div className="max-w-[31px] h-[31px] bg-[#F9F0E5] rounded-full p-2">
+                    <img
+                      className="w-full h-full"
+                      src={value.icon}
+                      alt={`${value.alt} icon`}
+                    />
+                  </div>
 
-                <p className="text-[#676869] ml-2">{value.text}</p>
-              </div>
-            ))}
+                  <p className="text-[#676869] ml-2">{value.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {isDesktop ? (

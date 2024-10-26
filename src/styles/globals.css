@@ -4,17 +4,17 @@
 
 @font-face {
   font-family: "SuisseBPIntl";
-  src: url("/landing-page/src/fonts/SuisseBPIntl-Light.otf") format("opentype");
+  src: url("/src/fonts/SuisseBPIntl-Light.otf") format("opentype");
 }
 
 @font-face {
   font-family: "SofiaProLight";
-  src: url("/landing-page/src/fonts/SofiaProLight.ttf") format("opentype");
+  src: url("/src/fonts/SofiaProLight.ttf") format("opentype");
 }
 
 @font-face {
   font-family: "SofiaProRegular";
-  src: url("/landing-page/src/fonts/SofiaProRegular.ttf") format("opentype");
+  src: url("/src/fonts/SofiaProRegular.ttf") format("opentype");
 }
 
 body {

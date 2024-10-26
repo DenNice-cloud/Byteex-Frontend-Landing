@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx}",
     "./src/components/**/*.{js,jsx}",
-    "./src/components/HowProductWorks/constants/productContant.js",
     "./src/app/**/*.{js,jsx}",
     "./src/ui/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}",

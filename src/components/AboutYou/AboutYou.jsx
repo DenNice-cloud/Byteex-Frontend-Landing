@@ -1,10 +1,11 @@
-import useWindowSize from "@/Hook/useWindowSize";
+import useWindowSize from "@/hook/useWindowSize";
 import "swiper/css";
 import AnimationPhotoAboutYou from "./AnimationPhotoAboutYou";
 
 const AboutYou = () => {
   const size = useWindowSize();
-  const isDesktop = size.width >= 1024;
+  const sizeTransition = 1024;
+  const isDesktop = size.width >= sizeTransition;
 
   return (
     <div

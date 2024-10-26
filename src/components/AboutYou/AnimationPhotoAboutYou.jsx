@@ -39,9 +39,9 @@ const AnimationPhotoAboutYou = () => {
       className="flex flex-col justify-center items-center 
           py-[90px]"
     >
-      <div className="w-[380px] h-[570px] relative">
+      <div className="w-[20.75rem] h-[30.625rem] relative">
         <div
-          className="absolute left-[-70px] top-[-70px] w-[165px] h-[175px] border-4 border-white cursor-pointer 
+          className="absolute left-[-70px] top-[-70px] w-[9rem] h-[11rem] border-4 border-white cursor-pointer 
             transition-transform duration-500 hover:scale-105"
           onClick={handleFirstClick}
         >
@@ -52,7 +52,7 @@ const AnimationPhotoAboutYou = () => {
           />
         </div>
 
-        <div className="w-[380px] h-[570px]">
+        <div className="w-full h-full ">
           <img
             className="w-full h-full object-cover transition-opacity duration-500 "
             src={currentImage}
@@ -62,9 +62,9 @@ const AnimationPhotoAboutYou = () => {
 
         <div
           className="absolute right-[-70px] bottom-[-70px] 
-              w-[165px] h-[175px]
-              lg:w-[128px] lg:h-[175px] 
-              border-4 border-white cursor-pointer
+            w-[9rem] h-[11rem]
+            lg:w-[8rem] lg:h-[11rem] 
+            border-4 border-white cursor-pointer
             transition-transform duration-500 hover:scale-105"
           onClick={handleSecondClick}
         >
