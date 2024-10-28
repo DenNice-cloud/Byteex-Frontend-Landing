@@ -1,6 +1,6 @@
 import { companyLogos } from "./constants/companyLogos";
 import { describeContant } from "./constants/describeContant";
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 import SwiperDescribe from "./SwiperDescribe";
 import { MainButton } from "@/ui/Button";
 

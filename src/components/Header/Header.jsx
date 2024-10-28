@@ -2,11 +2,11 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 
 const Header = () => {
   const size = useWindowSize();
-  const sizeTransition = 1024;  
+  const sizeTransition = 1024;
   const isDesktop = size.width >= sizeTransition;
 
   return (

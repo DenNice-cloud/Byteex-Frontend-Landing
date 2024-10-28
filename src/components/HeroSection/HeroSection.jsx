@@ -1,5 +1,5 @@
 import { describerSection } from "./constants/describerSection";
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 import { MainButton } from "@/ui/Button";
 import SwiperHeroSection from "./SwiperHeroSection";
 

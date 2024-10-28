@@ -1,4 +1,4 @@
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 import "swiper/css";
 import AnimationPhotoAboutYou from "./AnimationPhotoAboutYou";
 

@@ -1,4 +1,4 @@
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 import { MainButton } from "@/ui/Button";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";

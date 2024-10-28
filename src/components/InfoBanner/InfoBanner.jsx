@@ -1,4 +1,4 @@
-import useWindowSize from "@/hook/useWindowSize";
+import useWindowSize from "@/Hook/useWindowSize";
 import { totalImpacts } from "./constants/totalImpacts";
 
 const InfoBanner = () => {
