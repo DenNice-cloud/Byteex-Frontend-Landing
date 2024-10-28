@@ -1,4 +1,4 @@
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "@/ui/button";
 import ReviewMessage from "@/ui/ReviewMessage";
 import useWindowSize from "@/Hook/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";

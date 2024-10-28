@@ -2,7 +2,7 @@ import { companyLogos } from "./constants/companyLogos";
 import { describeContant } from "./constants/describeContant";
 import useWindowSize from "@/Hook/useWindowSize";
 import SwiperDescribe from "./SwiperDescribe";
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "@/ui/button";
 
 import "swiper/css";
 import "swiper/css/navigation";

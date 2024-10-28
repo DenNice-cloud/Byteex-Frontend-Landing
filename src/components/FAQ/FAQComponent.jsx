@@ -1,5 +1,5 @@
 import useWindowSize from "@/Hook/useWindowSize";
-import { MainButton } from "@/ui/Button";
+import { MainButton } from "@/ui/button";
 import { useEffect, useState } from "react";
 
 const { descriptionTab } = require("./constants/descriptionTab");
